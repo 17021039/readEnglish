@@ -1,0 +1,48 @@
+body {
+    background-color: darkgray;
+}
+
+p {
+    margin: 0px 0px 0px 4px;
+}
+
+hr {
+    border-width: 3px;
+}
+
+table {
+    max-width: 600px;
+    min-width: 500px;
+    margin-bottom: 10px;
+    border: solid 4px black;
+}
+
+.section {
+    border: solid 4px black;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 23px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(212, 212, 212);
+    color: black;
+    margin-bottom: 40px;
+}
+
+.back-to-top {
+    position: fixed;
+    top: auto;
+    left: auto;
+    right: 15px;
+    bottom: 15px;
+    font-size: 32px;
+    opacity: 0.8;
+    z-index: 9999;
+    cursor: pointer;
+    color: rgb(38, 49, 112);
+}
+
+.back-to-top:hover {
+    opacity: 1;
+    font-size: 40px;
+    color: rgb(102, 199, 255);
+}
