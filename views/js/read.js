@@ -11,8 +11,8 @@ $(document).ready(function() {
 
             for(let row of content) {
                 if(row[1]) {
-                    if(row.indexOf('Prologue:') === 0 || row.indexOf('Chapter') === 0 || row.indexOf('Epilogue:') === 0 || row.indexOf('Bonus Short Stories') === 0 || row.indexOf('Introductions and Interviews') === 0) {
-                        if(row.indexOf('Prologue:') !== 0) {
+                    if(row.indexOf('Prologue') === 0 || row.indexOf('Chapter') === 0 || row.indexOf('Epilogue') === 0 || row.indexOf('Bonus Short Stories') === 0) {
+                        if(row.indexOf('Prologue') !== 0) {
                             innerContent.appendChild(contentHTML);
                             contentHTML = document.createElement('div');
                             contentHTML.className = "section";
@@ -27,7 +27,7 @@ $(document).ready(function() {
                     else {
                         let rowHTML = document.createElement('p');
                         if(row.indexOf('★') !== 0)
-                            rowHTML.innerHTML = '&emsp;';
+                            rowHTML.innerHTML = '&emsp;&nbsp;';
                         else {
                             rowHTML.style = "text-align: center; font-size: 60px; color: purple;"
                             row =  "------" + row[0] + "------";

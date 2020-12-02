@@ -10,6 +10,10 @@ hr {
     border-width: 3px;
 }
 
+button:hover {
+    border: solid 3px rgb(36, 248, 248);
+}
+
 table {
     max-width: 600px;
     min-width: 500px;
@@ -23,7 +27,7 @@ table {
     padding: 10px;
     font-size: 23px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(219, 219, 219);
     color: black;
     margin-bottom: 40px;
 }
@@ -38,11 +42,23 @@ table {
     opacity: 0.8;
     z-index: 9999;
     cursor: pointer;
-    color: rgb(38, 49, 112);
+    color: rgb(57, 87, 255);
+    border: solid 4px rgb(235, 235, 235);
+    border-radius: 50%;
 }
 
 .back-to-top:hover {
     opacity: 1;
     font-size: 40px;
     color: rgb(102, 199, 255);
+    border: solid 4px rgb(36, 248, 248);
+}
+
+.btn-group-vertical {
+    position: fixed;
+    right:10px;
+    top: 10px;
+    border: solid 4px rgb(0, 151, 25);
+    border-radius: 5px;
+    padding: 0;
 }
