@@ -60,7 +60,12 @@ $(document).ready(function() {
             innerContent.appendChild(contentHTML);
             $('#content').html(innerContent);
         }).catch(err => {
-            alert(err);
+            let message = {};
+            if(err.response) {
+                message = err.response.data;
+            }
+            message.error = err;
+            alert(JSON.stringify(message,null,4));
         })
     })
 
