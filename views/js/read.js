@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    let mode = 'light';
 
     $('#read').click(function() {
         axios.post('/read', {path: $('select[name=path]').val()}).then((res) => {
@@ -8,14 +8,21 @@ $(document).ready(function() {
             let innerContent = document.createElement('div');
             let contentHTML = document.createElement('div');
             contentHTML.className = "section";
+            if(mode === 'dark') {
+                contentHTML.style = "background-color: black; color: gray;";
+            }
+            let headTitle = ['Prologue','Chapter','Epilogue','Bonus Short Stories','Intermission:','Afterword','Extra Chapter','Extra Episode'];
 
             for(let row of content) {
                 if(row[1]) {
-                    if(row.indexOf('Prologue') === 0 || row.indexOf('Chapter') === 0 || row.indexOf('Epilogue') === 0 || row.indexOf('Bonus Short Stories') === 0) {
+                    if(headTitle.find(title => row.indexOf(title) === 0)) {
                         if(row.indexOf('Prologue') !== 0) {
                             innerContent.appendChild(contentHTML);
                             contentHTML = document.createElement('div');
                             contentHTML.className = "section";
+                            if(mode === 'dark') {
+                                contentHTML.style = "background-color: black; color: gray;";
+                            }
                         }
                         let title = document.createElement('h1');
                         title.innerHTML = '&emsp;';
@@ -26,16 +33,27 @@ $(document).ready(function() {
                     }
                     else {
                         let rowHTML = document.createElement('p');
-                        if(row.indexOf('★') !== 0)
+                        if(row.indexOf('★') !== 0 || row.indexOf('＊ ＊ ＊') !== 0)
                             rowHTML.innerHTML = '&emsp;&nbsp;';
                         else {
                             rowHTML.style = "text-align: center; font-size: 60px; color: purple;"
                             row =  "------" + row[0] + "------";
                         }
-
-                        rowHTML.appendChild(document.createTextNode(row));
                         
-                        contentHTML.appendChild(rowHTML);
+                        if(row.indexOf('#') === 0) {
+                            contentHTML.appendChild(document.createElement('br'));
+                            row = row.substr(1).trim();
+                            let title = document.createElement('h2');
+                            title.innerHTML = '&emsp;';
+                            let inner = document.createElement('strong');
+                            inner.appendChild(document.createTextNode(row))
+                            title.appendChild(inner);
+                            contentHTML.appendChild(title);
+                        }
+                        else {
+                            rowHTML.appendChild(document.createTextNode(row));
+                            contentHTML.appendChild(rowHTML);
+                        }  
                     }      
                 }
             }
@@ -77,9 +95,11 @@ $(document).ready(function() {
     $('button').click(function() {
         switch (this.dataset.set) {
             case 'light':
+                mode = 'light';
                 $('.section').css({"background-color": " rgb(219, 219, 219)", "color": "black"});
                 break;
             case 'dark':
+                mode = 'dark';
                 $('.section').css({"background-color": "black", "color": "gray"});
                 break;
             default:

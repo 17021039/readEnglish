@@ -10,10 +10,6 @@ hr {
     border-width: 3px;
 }
 
-button:hover {
-    border: solid 3px rgb(36, 248, 248);
-}
-
 table {
     max-width: 600px;
     min-width: 500px;
@@ -54,11 +50,19 @@ table {
     border: solid 4px rgb(36, 248, 248);
 }
 
+
 .btn-group-vertical {
     position: fixed;
     right:10px;
     top: 10px;
-    border: solid 4px rgb(0, 151, 25);
+}
+
+.btn-border {
+    border: solid 4px rgb(77, 131, 86);
     border-radius: 5px;
-    padding: 0;
+    margin: 0;
+}
+
+.btn-border:hover {
+    border: solid 3px rgb(36, 248, 248);
 }
